@@ -1,0 +1,7 @@
+Package: scanfiles
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: Ravelaso
+Description: A tool to search for strings in files.
