@@ -11,7 +11,7 @@ import (
 
 // ListFilesInDirectory lists all files in the given directory (non-recursively)
 func ListFilesInDirectory(rootDir string) ([]string, error) {
-	files := []string{}
+	var files []string
 
 	entries, err := os.ReadDir(rootDir)
 	if err != nil {
