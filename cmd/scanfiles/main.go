@@ -3,11 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/ravelaso/scanfiles/pkg"
 	"log"
 	"os"
 	"sync"
-
-	"github.com/ravelaso/scanfiles"
 )
 
 func main() {
@@ -21,7 +20,7 @@ func main() {
 	searchString := os.Args[2]
 
 	// Step 1: List all files in the given directory
-	files, err := scanfiles.ListFilesInDirectory(rootDir)
+	files, err := pkg.ListFilesInDirectory(rootDir)
 	if err != nil {
 		log.Fatalf("Error listing files in directory: %v", err)
 	}
@@ -36,7 +35,7 @@ func main() {
 	// Step 3: Search each file concurrently
 	for _, file := range files {
 		wg.Add(1)
-		go scanfiles.SearchFile(file, searchString, results, ctx, &wg) // Access function from scanfiles package
+		go pkg.SearchFile(file, searchString, results, ctx, &wg) // Access function from scanfiles package
 	}
 
 	// Step 4: Wait for result or goroutines to finish

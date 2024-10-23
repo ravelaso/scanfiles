@@ -1,4 +1,4 @@
-package scanfiles
+package pkg
 
 import (
 	"context"
