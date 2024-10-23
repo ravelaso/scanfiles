@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/ravelaso/scanfiles/scanfiles"
 	"log"
 	"os"
 	"sync"
+
+	"github.com/ravelaso/scanfiles"
 )
 
 func main() {
