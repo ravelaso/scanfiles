@@ -43,7 +43,7 @@ func SearchFile(filePath string, searchString string, results chan<- string, ctx
 		}
 
 		fileContent := string(content)
-		if strings.Contains(strings.ToLower(fileContent), strings.ToLower(searchString)) {
+		if strings.Contains(fileContent, searchString) {
 			results <- filePath
 		}
 	}

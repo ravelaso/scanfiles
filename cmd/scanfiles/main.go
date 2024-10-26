@@ -11,14 +11,24 @@ import (
 )
 
 func main() {
-	// Check for correct number of arguments
-	if len(os.Args) < 3 {
-		fmt.Println("Usage: scanfiles <directory> <searchString>")
+	// Check for the presence of search string argument
+	if len(os.Args) < 2 {
+		fmt.Println("Usage: scanfiles [directory] <searchString>")
 		return
 	}
 
-	rootDir := os.Args[1]
-	searchString := os.Args[2]
+	// Set rootDir to current directory if not provided
+	rootDir := "."
+	searchString := ""
+
+	if len(os.Args) == 2 {
+		// Only search string is provided, assume current directory
+		searchString = os.Args[1]
+	} else if len(os.Args) >= 3 {
+		// Both directory and search string are provided
+		rootDir = os.Args[1]
+		searchString = os.Args[2]
+	}
 
 	// Step 1: List all files in the given directory
 	files, err := scanfiles.ListFilesInDirectory(rootDir)
