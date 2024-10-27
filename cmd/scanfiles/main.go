@@ -13,7 +13,7 @@ import (
 func main() {
 	// Check for the presence of search string argument
 	if len(os.Args) < 2 {
-		fmt.Println("Usage: scanfiles [directory] <searchString>")
+		fmt.Println("Usage: scanfiles [directory](optional, current dir will be used if skipped) 'SearchString' ")
 		return
 	}
 
